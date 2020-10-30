@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToolNet - Tools That Matter</title>
+  <style>
+    ._main{ margin:auto;}
+.main_section{background:white; border-radius:12px; padding:20px; margin:30px;     box-shadow: 0px 0px 9px 0px gray;
+  padding-top:80px; 
+}
+.col-3{
+  padding-bottom:40px;
+  
+}
+#gif_logo{display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15%;}
+.col-3{display:flex;}
+
+body
+{
+margin:0;
+  background:#f5f5f5;
+}
+
+:focus{outline: none;}
+
+ /* necessary to give position: relative to parent. */
+input[type="text"]{font: 15px/24px "Lato", Arial, sans-serif; color: #3399FF; width: 100%; box-sizing: border-box; letter-spacing: 1px;}
+
+.effect-16{border: 0; padding: 4px 0; border-bottom: 1px solid #3399FF; background-color: transparent;}
+
+.effect-16 ~ .focus-border{position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: #3399FF; transition: 0.5s;}
+.effect-16:focus ~ .focus-border,
+.has-content.effect-16 ~ .focus-border{width: 100%; transition: 0.4s;}
+.effect-16 ~ label{position: absolute; left: 0; width: 100%; top: 9px; color: #aaa; transition: 0.5s; z-index: -1; letter-spacing: 0.5px;}
+.effect-16:focus ~ label, .has-content.effect-16 ~ label{top: -16px; font-size: 12px; color: #3399FF; transition: 0.3s;}
+
+#submit_btn{padding:5px 40px; background:skyblue; outline:0; border:0; font-weight:20px;}
+
+#downMEDIA button{padding:5px 30px; outline:0; border:0; background:purple; font-weight:300; color:white; }
+
+.main_section{padding:70px;}
+  </style>
+</head>
+<body>
+    <div class="main_section">
+      <div class="sec_1">
+      <br/>
+        <img src="https://i.ibb.co/VqzbmJR/GIPHY-GIF-TOOL.png" width="120" id="gif_logo"/><br/>
+       <center>
+        <div class="col-3 input-effect">
+        	<input class="effect-16" type="text" placeholder="Enter Your Link" autocomplete="off" id="gif_link">
+            <span class="focus-border"></span>
+           <input id="submit_btn" value="Grab It!" type="submit"/>
+          <br/></center></div>
+        <a id="downMEDIA" style="display:none"><button >Click here to Drink Milk and Download GIF</button></a>
+      </div>
+      <div class="sec_2">
+        <br/>
+      </div>
+      </div>
+  <script>
+document.getElementById("submit_btn").addEventListener("click", function(){
+  var x = document.getElementById("gif_link").value;
+  for(i=1; i<=3; i++)
+    {
+  x =x.substring(x.indexOf("-")+1);
+    }
+  var y = "https://i.giphy.com/media/" + x + "/giphy.gif";
+  var dd = document.getElementById("downMEDIA");
+  dd.setAttribute("href", y);
+dd.setAttribute("download", "");
+
+  document.getElementById('downMEDIA').removeAttribute('style');
+  
+});
+    
+</script>
+</body>
+</html>
