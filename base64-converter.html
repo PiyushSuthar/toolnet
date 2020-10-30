@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base64 Converter - ToolNet</title>
+  <style>
+    ._main{ margin:auto;}
+.main_section{background:white; border-radius:12px; padding:20px; margin:30px;     box-shadow: 0px 0px 9px 0px gray;
+  padding-top:80px; 
+}
+.col-3{
+  padding-bottom:40px;
+  
+}
+#gif_logo{display: block;
+
+  width: 15%;}
+.col-3{display:flex;}
+
+body
+{
+margin:0;
+  background:#f5f5f5;
+}
+
+:focus{outline: none;}
+
+ /* necessary to give position: relative to parent. */
+input[type="text"]{font: 15px/24px "Lato", Arial, sans-serif; color: #3399FF; width: 100%; box-sizing: border-box; letter-spacing: 1px;}
+
+.effect-16{border: 0; padding: 4px 0; border-bottom: 1px solid #3399FF; background-color: transparent;}
+
+.effect-16 ~ .focus-border{position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: #3399FF; transition: 0.5s;}
+.effect-16:focus ~ .focus-border,
+.has-content.effect-16 ~ .focus-border{width: 100%; transition: 0.4s;}
+.effect-16 ~ label{position: absolute; left: 0; width: 100%; top: 9px; color: #aaa; transition: 0.5s; z-index: -1; letter-spacing: 0.5px;}
+.effect-16:focus ~ label, .has-content.effect-16 ~ label{top: -16px; font-size: 12px; color: #3399FF; transition: 0.3s;}
+
+#submit_btn{padding:5px 40px; background:skyblue; outline:0; border:0; font-weight:20px;}
+
+#downMEDIA button{padding:5px 30px; outline:0; border:0; background:purple; font-weight:300; color:white; }
+
+.main_section{padding:70px;}
+  </style>
+</head>
+<body>
+    <div class="main_section">
+      <h1 style="font-family:sans-serif; ">BASE64 Converter</h1><br/>
+      <hr style="width:40%; text-align:left;"/>
+      <div class="sec_1">
+      <br/>
+      <input type="text" id="gif_link">
+      <input type="submit" id="encode_base64" value="Encode">
+      <input type="submit" id="decode_base64" value="Decode">
+        
+       
+        <p id="result" onclick="copyElementText(this.id)"></p><br/><p>Click on result to copy it!</p>
+        <center><p style="font-family:sans-serif;">Open Source Project by <a href="https://github.com/PiyushSuthar">Piyush Suthar</a></p></center>
+      </div>
+      <script>
+        
+        document.getElementById("encode_base64").addEventListener("click", function(){
+  var x = document.getElementById("gif_link").value;
+
+// Encode the String
+var encodedString = btoa(x);
+
+var dd = document.getElementById("result");
+  dd.innerHTML= encodedString;
+  
+});
+
+document.getElementById("decode_base64").addEventListener("click", function(){
+  var x = document.getElementById("gif_link").value;
+
+// Encode the String
+var encodedString = atob(x);
+
+var dd = document.getElementById("result");
+  dd.innerHTML= encodedString;
+
+
+  
+});
+function copyElementText(id) {
+    var text = document.getElementById(id).innerText;
+    var elem = document.createElement("textarea");
+    document.body.appendChild(elem);
+    elem.value = text;
+    elem.select();
+    document.execCommand("copy");
+    document.body.removeChild(elem);
+}
+
+      </script>
+</body>
+</html>
